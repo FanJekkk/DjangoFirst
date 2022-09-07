@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, Http404
 
 name = "Денис"
 surname = "Тепляков"
@@ -35,7 +35,6 @@ def home(request):
 def item_page(request,id):
     for item in items:
         if item["id"] == id:
-            item_str = f"Товар: <b>{item['name']}</b> количество: {item['quantity']}"
-            return HttpResponse(item_str)
-    return HttpResponse(f"Товар с id={id} не найден")
+            return render(request, "item_page.html", item)
+    raise Http404(f"Товар с id={id} не найден")
 
