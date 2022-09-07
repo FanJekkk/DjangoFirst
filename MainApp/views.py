@@ -3,6 +3,7 @@ from django.shortcuts import render, HttpResponse
 name = "Денис"
 surname = "Тепляков"
 email = "denteplyakov2020@gmail.com"
+phone = "8-923-600-01-02"
 items = [
    {"id": 1, "name": "Кроссовки abibas" ,"quantity":5},
    {"id": 2, "name": "Куртка кожаная" ,"quantity":2},
@@ -12,24 +13,24 @@ items = [
 ]
 
 def items_list(request):
-    result = "<ol>"
-    for i in items:
-        result +=f"<li><a href='/item/{i['id']}'>{i['name']}</a></li>"
-    result += "</ol>"
-    return HttpResponse(result)
+    # result = "<ol>"
+    # for i in items:
+    #     result +=f"<li><a href='/item/{i['id']}'>{i['name']}</a></li>"
+    # result += "</ol>"
+    # return HttpResponse(result)
+    context = {
+        "items": items
+    }
+    return render(request,"items.html", context)
 
 def about(request):
-    info = f"""Имя: <strong>{name}</strong><br>
-             Фамилия: <strong>{surname}</strong><br>
-             телефон: <strong>8-923-600-01-02</strong><br>
-             email: <strong>{email}</strong>"""
-    return HttpResponse(info)
+    context = {
+        "name": name,"surname": surname, "email": email, "phone": phone
+    }
+    return render(request,"about.html",context)
 
 def home(request):
-    text = f"""<h1> "Изучаем django" </h1>
-    <strong> Автор </strong>: <i> {surname}
-    {name[0]}. </i>"""
-    return HttpResponse(text)
+    return render(request,"index.html")
 
 def item_page(request,id):
     for item in items:
