@@ -6,8 +6,10 @@
 </head>
 <body>
 <h1>Страница товара</h1>
-<div>Название: {{ name }} </div>
-<div>Количество: {{ quantity|default:"Товар отсутствует"}}</div>
+<div>Название: {{ item.name }} </div>
+<div>Бренд: {{ item.brand }}</div>
+<div>Описание: {{ item.description }}</div>
+<div>Количество: {{ item.count|default:"Товара нет на складе"}}</div>
 <a href="/items">Назад</a>
 </body>
 </html>
