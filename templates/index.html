@@ -1,21 +1,7 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Главная</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
-</head>
-<body>
-<nav class="menu">
-    /<a href = "{% url 'items' %}">Список товаров</a> / <a href = "{% url 'about' %}">Об авторе</a> /
-</nav>
+{% extends 'base.html'%}
+{% block title %}Главная{% endblock %}
+{% block content%}
 <main class="content">
-    Добро пожаловать!
+    <h1>Добро пожаловать!</h1>
 </main>
-<footer>
-    (c) Специалист 09.2022
-</footer>
-</body>
-</html>
+{% endblock %}

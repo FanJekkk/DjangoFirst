@@ -1,1 +1,12 @@
-{% extends 'base.html' %}
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Главная</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if request.resolver_match.url_name == 'items' %}active
+    {% elif request.resolver_match.url_name == 'item_page'%}active{% endif %}" href = "{% url 'items' %}">Список товаров</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href = "{% url 'about' %}">Об авторе</a>
+  </li>
+</ul>

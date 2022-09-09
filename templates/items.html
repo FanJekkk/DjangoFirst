@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Товар</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
-</head>
-<body>
-<nav class="menu">
-    /<a href = "{% url 'home' %}">Главная</a> / <a href = "/about">Об авторе</a> /
-</nav>
+{% extends 'base.html' %}
+{% block title %}Список товаров{% endblock %}
+{% block content %}
 <main class="content">
     <h1>Список товаров</h1>
-    <ol>
+    <div class="row">
 {% for item in items%}
-    <li><a href="{% url 'item_page' item.id %}">{{ item.name }}</a></li>
+    <div class="col-md-2 m-3 border border-primary rounded">{{ item.name }}<div class="row"><div class="col-md-2 mt-4 mb-2"><a href="{% url 'item_page' item.id %}">Подробнее</a></div></div></div>
 {% endfor %}
-    </ol>
+    </div>
 </main>
-<footer>
-    (c) Специалист 09.2022
-</footer>
-</body>
-</html>
+{% endblock %}
