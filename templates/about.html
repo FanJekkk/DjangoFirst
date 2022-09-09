@@ -3,12 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>About</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
 </head>
 <body>
-<h1>Об авторе</h1>
-<div>Имя: <strong>{{ name }}</strong></div>
-<div>Фамилия: <strong>{{ surname }}</strong></div>
-<div>телефон: <strong>{{ phone }}</strong></div>
-<div>email: <strong>{{ email }}</strong></div>
+<nav class="menu">
+    /<a href = "{% url 'items' %}">Список товаров</a> / <a href = "{% url 'about' %}">Об авторе</a> /
+</nav>
+<main class="content">
+    <h1>Об авторе</h1>
+    <div>Имя: <strong>{{ name }}</strong></div>
+    <div>Фамилия: <strong>{{ surname }}</strong></div>
+    <div>телефон: <strong>{{ phone }}</strong></div>
+    <div>email: <strong>{{ email }}</strong></div>
+</main>
+<footer>
+    (c) Специалист 09.2022
+</footer>
 </body>
 </html>

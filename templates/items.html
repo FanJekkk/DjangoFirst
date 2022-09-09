@@ -2,14 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Items</title>
+    <title>Товар</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
 </head>
 <body>
-<h1>Список товаров</h1>
-<ol>
+<nav class="menu">
+    /<a href = "{% url 'home' %}">Главная</a> / <a href = "/about">Об авторе</a> /
+</nav>
+<main class="content">
+    <h1>Список товаров</h1>
+    <ol>
 {% for item in items%}
-    <li><a href="item/{{ item.id }}">{{ item.name }}</a></li>
+    <li><a href="{% url 'item_page' item.id %}">{{ item.name }}</a></li>
 {% endfor %}
-</ol>
+    </ol>
+</main>
+<footer>
+    (c) Специалист 09.2022
+</footer>
 </body>
 </html>

@@ -47,3 +47,6 @@ def item_page(request,id):
     except ObjectDoesNotExist:
         raise Http404(f"Товар с id={id} не найден")
 
+def page1(request):
+    return render(request,"")
+

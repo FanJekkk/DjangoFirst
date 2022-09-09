@@ -2,14 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Item page</title>
+    <title>Страница товара</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
 </head>
 <body>
-<h1>Страница товара</h1>
-<div>Название: {{ item.name }} </div>
-<div>Бренд: {{ item.brand }}</div>
-<div>Описание: {{ item.description }}</div>
-<div>Количество: {{ item.count|default:"Товара нет на складе"}}</div>
-<a href="/items">Назад</a>
+<nav class="menu">
+    /<a href = "{% url 'home' %}">Главная</a> / <a href = "{% url 'about' %}">Об авторе</a> /
+</nav>
+<main class="content">
+    <h1>Страница товара</h1>
+    <div>Название: {{ item.name }} </div>
+    <div>Бренд: {{ item.brand }}</div>
+    <div>Описание: {{ item.description }}</div>
+    <div>Количество: {{ item.count|default:"Товара нет на складе"}}</div>
+</main>
+<footer>
+    (c) Специалист 09.2022
+</footer>
 </body>
 </html>
